@@ -1,0 +1,59 @@
+<div class="postWrapper" id="writePostWrapper" *ngFor="let user of usersList$ | async">
+  <div class="card" id="writePostCard">
+    <div class="cardHeader">
+      <div class="cardUserWrapper">
+        <img
+          src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+          alt=""
+          height="40"
+          width="40"
+          class="cardUserPicture"
+        />
+        <button class="card-text cardUsername">@{{ user.username }}</button>
+      </div>
+    </div>
+    <div id="writePostFormWrapper">
+      <form id="writePostForm" #writePostForm="ngForm">
+        <!-- enter post title -->
+        <div class="form-group">
+          <label for="writePostTitle">Post Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="writePostTitle"
+            placeholder="write a post title here..."
+            required
+            name="writePostTitle"
+            [(ngModel)]="writePostTitle"
+          />
+        </div>
+
+        <!-- enter post body -->
+        <div class="form-group">
+          <label for="writePostBody">Post Content</label>
+          <textarea
+            type="text"
+            class="form-control"
+            id="writePostBody"
+            placeholder="write the posts content here..."
+            required
+            name="writePostBody"
+            [(ngModel)]="writePostBody"
+          ></textarea>
+        </div>
+
+        <!-- submit post -->
+        <button
+          *ngIf="myUserId$ | async as myUserId"
+          type="submit"
+          class="input_group_icon submitPostButton"
+          id="submitPostButton"
+          class="input-group-text"
+          (click)="submitPostForm(writePostForm, myUserId)"
+        >
+          Submit Post
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

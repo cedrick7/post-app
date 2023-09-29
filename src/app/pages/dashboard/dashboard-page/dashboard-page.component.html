@@ -1,0 +1,74 @@
+<section id="dashboardHeader">
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <header>
+          <h1>{{ heading }}</h1>
+        </header>
+      </div>
+      <div class="col-6 myInformationOuterWrapper">
+        <app-my-information></app-my-information>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="bodyContent">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-4 col-sm-12">
+        <section id="usersListSection">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <header>
+                  <h2>Users List</h2>
+                </header>
+                <app-users-list></app-users-list>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="col-12 col-md-8 col-sm-12">
+        <section id="postsListSection">
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <header>
+                  <h2>Write a Post + Posts List</h2>
+                </header>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="postsListSectionHeader">
+                        <h4>Write a post</h4>
+                      </div>
+                      <!-- start write a post -->
+                      <app-write-post></app-write-post>
+                      <!-- end write a post -->
+                    </div>
+                    <div class="col-12">
+                      <div class="postsListSectionHeader">
+                        <h4>See all posts</h4>
+                      </div>
+                      <!-- start postsList loop here -->
+                      <app-posts-list></app-posts-list>
+                      <!-- end postsList loop here -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- <app-post-detail class="col-12"></app-post-detail> -->
+
+      <!-- <app-post-detail-edit class="col-12"></app-post-detail-edit> -->
+
+      <!-- <app-user-detail class="col-12"></app-user-detail> -->
+    </div>
+  </div>
+</section>

@@ -1,0 +1,32 @@
+<section id="usersPageSection">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <header>
+          <h2>{{ heading }}</h2>
+        </header>
+
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-md-4 col-sm-12">
+              <div class="postsListSectionHeader">
+                <h4>User information</h4>
+              </div>
+              <!-- start postsList loop here -->
+              <app-user-detail></app-user-detail>
+              <!-- end postsList loop here -->
+            </div>
+            <div class="col-12 col-md-8 col-sm-12">
+              <div class="postsListSectionHeader">
+                <h4>See all posts from the user</h4>
+              </div>
+              <!-- start postsList loop here -->
+              <app-posts-list></app-posts-list>
+              <!-- end postsList loop here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,19 @@
+<div class="meInformationWrapper" *ngFor="let user of usersList$ | async">
+  <button type="button" class="meInformationButton" (click)="onSelectUser(user)">
+    <div class="meProfilePicWrapper">
+      <img
+        src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+        alt=""
+        height="40"
+        width="40"
+        class="meProfilePicture"
+      />
+    </div>
+    <div class="meNamesWrapper">
+      <p class="meUsernameWrapper">
+        <button type="button" class="meUsernameLink">@{{ user.username }}</button>
+      </p>
+      <p class="meNameWrapper">{{ user.name }}</p>
+    </div>
+  </button>
+</div>

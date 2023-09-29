@@ -1,0 +1,75 @@
+<!-- start write a post -->
+<div class="postWrapper" id="editPostWrapper" *ngFor="let post of postList$ | async">
+  <div class="card" id="editPostCard">
+    <div class="cardHeader">
+      <div class="cardUserWrapper">
+        <img
+          src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+          alt=""
+          height="40"
+          width="40"
+          class="cardUserPicture"
+        />
+        <button class="card-text cardUsername">@{{ post?.userName }}</button>
+      </div>
+    </div>
+    <div id="editPostFormWrapper">
+      <form id="editPostForm" #editPostForm="ngForm">
+        <!-- enter post title -->
+        <div class="form-group">
+          <label for="editPostTitle">Post Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="editPostTitle"
+            name="editPostTitle"
+            [(ngModel)]="editPostTitle"
+            placeholder="edit the posts title here..."
+            required
+          />
+        </div>
+
+        <!-- enter post body -->
+        <div class="form-group">
+          <label for="editPostBody">Post Content</label>
+          <textarea
+            type="text"
+            class="form-control"
+            id="editPostBody"
+            name="editPostBody"
+            [(ngModel)]="editPostBody"
+            placeholder="edit the posts content here..."
+            required
+            rows="4"
+            >{{ post?.body }}
+          </textarea>
+        </div>
+
+        <div class="form-group button-group">
+          <!-- submit post -->
+          <button
+            *ngIf="myUserId$ | async as myUserId"
+            class="input_group_icon submitPostButton"
+            id="submitEditPostButton"
+            class="input-group-text"
+            (click)="submitPostForm(editPostForm, myUserId, post?.id ?? 0)"
+          >
+            Save Post
+          </button>
+
+          <!-- delete post -->
+          <button
+            type="button"
+            class="input_group_icon submitPostButton"
+            id="deleteEditPostButton"
+            class="input-group-text"
+            (click)="deletePost(post?.id ?? 0)"
+          >
+            Delete Post
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- end write a post -->

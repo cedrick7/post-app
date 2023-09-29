@@ -1,0 +1,86 @@
+<!-- start user here -->
+<div class="userDetailWrapper" *ngFor="let user of userList$ | async">
+  <div class="card">
+    <div class="card-header">User Information</div>
+    <div class="card-body">
+      <form id="userDetailForm" #userDetailForm="ngForm">
+        <!-- User ID -->
+        <!-- <div class="form-group">
+          <label for="userIdInput">User ID</label>
+          <input
+            type="number"
+            class="form-control"
+            id="userIdInput"
+            placeholder="ID"
+            [value]="user.id"
+            readonly
+          />
+        </div> -->
+
+        <!-- Username -->
+        <div class="form-group">
+          <label for="userUsernameInput">Username</label>
+          <input
+            type="text"
+            class="form-control"
+            id="userUsernameInput"
+            name="userUsernameInput"
+            [(ngModel)]="userUsernameInput"
+            placeholder="Username"
+            [value]="user.username"
+            readonly
+          />
+        </div>
+
+        <!-- Full Name -->
+        <div class="form-group">
+          <label for="userNameInput">Full name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="userNameInput"
+            name="userNameInput"
+            [(ngModel)]="userNameInput"
+            placeholder="First and sir name"
+            [value]="user.name"
+            readonly
+          />
+        </div>
+
+        <!-- E-Mail -->
+        <div class="form-group">
+          <label for="userEmailInput">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="userEmailInput"
+            name="userEmailInput"
+            [(ngModel)]="userEmailInput"
+            placeholder="name@example.com"
+            [value]="user.email"
+            aria-describedby="emailHelp"
+            readonly
+          />
+        </div>
+
+        <!-- Operation Buttons -->
+        <div
+          class="form-group"
+          id="userDetailOperationButtonWrapper"
+          *ngIf="user.id == (myUserId$ | async)"
+        >
+          <!-- Edit -->
+          <button
+            type="button"
+            class="btn btn-primary"
+            id="gotoUserDetailEditButton"
+            (click)="onEditMyUserInformation(user)"
+          >
+            Edit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- end user here -->

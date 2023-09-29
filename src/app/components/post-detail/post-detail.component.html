@@ -1,0 +1,57 @@
+<!-- start post here -->
+<div class="postWrapper" *ngFor="let post of postList$ | async">
+  <div class="card">
+    <!-- <div class="cardUserWrapper">
+            <img
+              src="https://pixabay.com/get/g608b32237aaa4561cd7f812d385cd3bb6ca5e0ed46df51b34b58e16b6aeb27dea46be5706a1046fdb32037da70e6e168_1280.png"
+              alt=""
+              height="40"
+              width="40"
+              class="cardUserPicture"
+            />
+            <button class="card-text cardUsername">@username</button>
+          </div> -->
+
+    <div class="cardHeader">
+      <div class="cardUserWrapper">
+        <img
+          src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+          alt=""
+          height="40"
+          width="40"
+          class="cardUserPicture"
+        />
+        <button class="card-text cardUsername">@{{ post?.userName }}</button>
+      </div>
+      <div class="postInteractionWrapper" *ngIf="post?.userId == (myUserId$ | async)">
+        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+          <div class="btn-group" role="group" aria-label="Post Interaction Menu">
+            <button type="button" class="btn btn-secondary" (click)="onEditThisPost(post?.id)">
+              Edit Post
+            </button>
+            <button type="button" class="btn btn-secondary" (click)="onDeleteThisPost(post?.id)">
+              Delete Post
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="card-title cardPostTitle">{{ post?.title }}</p>
+    <p class="card-text cardPostBody">{{ post?.body }}</p>
+
+    <hr />
+
+    <app-comments-list></app-comments-list>
+
+    <hr />
+
+    <div class="writeCommentDivWrapper">
+      <!-- <app-write-comment
+                      (commentInputValueChanged)="submitComment($event)"
+                    ></app-write-comment> -->
+      <app-write-comment></app-write-comment>
+    </div>
+  </div>
+</div>
+<!-- end post here -->

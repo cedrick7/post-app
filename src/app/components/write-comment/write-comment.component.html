@@ -1,0 +1,57 @@
+<section id="postDetailSection">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <p>Write a comment</p>
+      </div>
+      <div class="col-12">
+        <form #writeCommentForm="ngForm">
+          <div id="input_field_wrapper">
+            <!-- enter comment title -->
+            <div class="form-group">
+              <label for="writeCommentTitle">Comment Title</label>
+              <input
+                type="text"
+                class="form-control"
+                id="writeCommentTitle"
+                name="writeCommentTitle"
+                [(ngModel)]="writeCommentTitle"
+                placeholder="write a comments title here..."
+                required
+              />
+            </div>
+
+            <!-- enter comment body -->
+            <div class="form-group">
+              <label for="writeCommentBody">Comment Body</label>
+              <textarea
+                type="text"
+                class="form-control"
+                id="writeCommentBody"
+                name="writeCommentBody"
+                [(ngModel)]="writeCommentBody"
+                placeholder="write a comments title here..."
+                required
+                rows="4"
+              ></textarea>
+            </div>
+
+            <ng-container *ngIf="loggedInUserEmail$ | async as loggedInUserEmail">
+              <!-- submit button -->
+              <button
+                *ngIf="currentPostId$ | async as currentPostId"
+                type="submit"
+                class="input_group_icon"
+                id="submitButton"
+                class="input-group-text"
+                (click)="submitComment(writeCommentForm, loggedInUserEmail, currentPostId)"
+              >
+                Submit
+              </button>
+            </ng-container>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

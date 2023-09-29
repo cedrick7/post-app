@@ -1,0 +1,96 @@
+// -------------------------------------------------------------------------------------------------
+// posts-list
+.postsListSectionHeader {
+  margin-top: 10px;
+}
+.postWrapper {
+  text-decoration: $text-decoration_default;
+  color: $color_default;
+  margin-bottom: 10px;
+
+  .card {
+    padding: 10px;
+
+    .cardHeader {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      .cardUserWrapper {
+        padding: 5px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .cardUserPicture {
+          border: $profilePictureBorder;
+          border-radius: $profilePictureBorderRadius;
+        }
+
+        .cardUsername {
+          margin-left: 10px;
+          border: none;
+          background-color: transparent;
+          color: $color_default;
+        }
+      }
+
+      .postInteractionWrapper {
+        color: $color_white;
+      }
+    }
+
+    .cardPostTitle {
+      font-size: 1.5rem;
+      color: $color_default;
+      border: none;
+      background-color: transparent;
+      text-align: left;
+      padding-left: 0;
+    }
+
+    .cardPostBody {
+      font-size: 1rem;
+      color: $color_default;
+    }
+
+    .cardSeeCommentsLinkWrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: right;
+      align-items: center;
+
+      .cardSeeCommentsLink {
+        border: none;
+        background-color: transparent;
+        font-size: 0.7rem;
+        color: $color_grey;
+        text-align: right;
+      }
+    }
+
+    .cardWriteCommentLink {
+      border: none;
+      background-color: transparent;
+      font-size: 1rem;
+      color: $color_default;
+    }
+  }
+}
+
+#writePostWrapper {
+  #writePostCard {
+    background-color: $background-color_1;
+
+    #writePostFormWrapper {
+      margin-top: 10px;
+
+      #writePostForm {
+        .submitPostButton {
+          color: $color_default;
+        }
+      }
+    }
+  }
+}

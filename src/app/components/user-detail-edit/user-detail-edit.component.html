@@ -1,0 +1,241 @@
+<!-- start user here -->
+<div class="userDetailWrapper" *ngFor="let user of userList$ | async">
+  <div class="card">
+    <div class="card-header">User Information</div>
+    <div class="card-body">
+      <form
+        id="userDetailForm"
+        #userDetailForm="ngForm"
+        (submit)="submitUserDetailForm(userDetailForm)"
+      >
+        <!-- User ID -->
+        <div class="form-group">
+          <label for="userIdInput">User ID</label>
+          <input
+            type="number"
+            class="form-control"
+            id="userIdInput"
+            name="userIdInput"
+            [(ngModel)]="userIdInput"
+            placeholder="ID"
+            [value]="user.id"
+            readonly
+          />
+        </div>
+
+        <!-- Full Name -->
+        <div class="form-group">
+          <label for="userNameInput">Full name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="userNameInput"
+            name="userNameInput"
+            [(ngModel)]="userNameInput"
+            placeholder="First and sir name"
+            [value]="user.name"
+            required
+          />
+          <small id="userNameInputHelp" class="form-text text-muted"
+            >This information is public!</small
+          >
+        </div>
+
+        <!-- Username -->
+        <div class="form-group">
+          <label for="userUsernameInput">Username</label>
+          <input
+            type="text"
+            class="form-control"
+            id="userUsernameInput"
+            name="userUsernameInput"
+            [(ngModel)]="userUsernameInput"
+            placeholder="Username"
+            [value]="user.username"
+            required
+          />
+          <small id="userUsernameInputHelp" class="form-text text-muted"
+            >This information is public!</small
+          >
+        </div>
+
+        <!-- E-Mail -->
+        <div class="form-group">
+          <label for="userEmailInput">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="userEmailInput"
+            name="userEmailInput"
+            [(ngModel)]="userEmailInput"
+            placeholder="name@example.com"
+            [value]="user.email"
+            aria-describedby="emailHelp"
+            required
+          />
+          <small id="userEmailInputHelp" class="form-text text-muted"
+            >This information is public!</small
+          >
+        </div>
+
+        <!-- Address -->
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="userStreetInput">Street</label>
+            <input
+              type="text"
+              class="form-control"
+              id="userStreetInput"
+              name="userStreetInput"
+              [(ngModel)]="userStreetInput"
+              placeholder="Street's name"
+              [value]="user.address.street"
+            />
+          </div>
+          <div class="form-group col-md-6">
+            <label for="userSuiteInput">Suite</label>
+            <input
+              type="text"
+              class="form-control"
+              id="userSuiteInput"
+              name="userSuiteInput"
+              [(ngModel)]="userSuiteInput"
+              placeholder="Suite and number"
+              [value]="user.address.suite"
+            />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-8">
+            <label for="userCityInput">City</label>
+            <input
+              type="text"
+              class="form-control"
+              id="userCityInput"
+              name="userCityInput"
+              [(ngModel)]="userCityInput"
+              placeholder="City's name"
+              [value]="user.address.city"
+            />
+          </div>
+          <div class="form-group col-md-4">
+            <label for="userZipInput">Zipcode</label>
+            <input
+              type="text"
+              class="form-control"
+              id="userZipInput"
+              name="userZipInput"
+              [(ngModel)]="userZipInput"
+              placeholder="Zipcode"
+              [value]="user.address.zipcode"
+            />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="userLatInput">Geo Lat</label>
+            <input
+              type="text"
+              class="form-control"
+              id="userLatInput"
+              name="userLatInput"
+              [(ngModel)]="userLatInput"
+              placeholder="Lat"
+              [value]="user.address.geo.lat"
+            />
+          </div>
+          <div class="form-group col-md-6">
+            <label for="userLngInput">Geo Lng</label>
+            <input
+              type="text"
+              class="form-control"
+              id="userLngInput"
+              name="userLngInput"
+              [(ngModel)]="userLngInput"
+              placeholder="Lng"
+              [value]="user.address.geo.lng"
+            />
+          </div>
+        </div>
+
+        <!-- Phone Number -->
+        <div class="form-group">
+          <label for="userPhoneInput">Phone number</label>
+          <input
+            type="text"
+            class="form-control"
+            id="userPhoneInput"
+            name="userPhoneInput"
+            [(ngModel)]="userPhoneInput"
+            placeholder="Phone number"
+            [value]="user.phone"
+          />
+        </div>
+
+        <!-- Website -->
+        <div class="form-group">
+          <label for="userWebsiteInput">Website</label>
+          <input
+            type="text"
+            class="form-control"
+            id="userWebsiteInput"
+            name="userWebsiteInput"
+            [(ngModel)]="userWebsiteInput"
+            placeholder="website.com"
+            [value]="user.website"
+          />
+        </div>
+
+        <!-- Company -->
+        <div class="form-row">
+          <div class="form-group col-12">
+            <label for="userCompanyNameInput">Company name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="userCompanyNameInput"
+              name="userCompanyNameInput"
+              [(ngModel)]="userCompanyNameInput"
+              placeholder="Company name"
+              [value]="user.company.name"
+            />
+          </div>
+          <div class="form-group col-12">
+            <label for="userCompanyCatchPhraseInput">Company catch phrase</label>
+            <input
+              type="text"
+              class="form-control"
+              id="userCompanyCatchPhraseInput"
+              name="userCompanyCatchPhraseInput"
+              [(ngModel)]="userCompanyCatchPhraseInput"
+              placeholder="Company catch phrase"
+              [value]="user.company.catchPhrase"
+            />
+          </div>
+          <div class="form-group col-12">
+            <label for="userCompanyBsInput">Company bs</label>
+            <input
+              type="text"
+              class="form-control"
+              id="userCompanyBsInput"
+              name="userCompanyBsInput"
+              [(ngModel)]="userCompanyBsInput"
+              placeholder="Company bs"
+              [value]="user.company.bs"
+            />
+          </div>
+        </div>
+
+        <!-- Operation Buttons -->
+        <div class="form-group" id="userDetailOperationButtonWrapper">
+          <!-- Edit -->
+          <!-- <button type="button" class="btn btn-primary" id="userDetailEditButton">Edit</button> -->
+
+          <!-- Submit -->
+          <button type="submit" class="btn btn-primary" id="userDetailSubmitButton">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- end user here -->

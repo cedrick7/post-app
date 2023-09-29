@@ -1,0 +1,22 @@
+// bootstrap
+// @import "../node_modules/bootstrap/scss/bootstrap";
+// imported in index.html
+
+// fontawesome
+// ...
+// imported in index.html
+
+// theme variables
+@import "themes/main/main";
+
+// component styles
+@import "components/app-component/app-component";
+@import "components/my-information/my-information";
+@import "components/header/header";
+@import "components/users-list/users-list";
+@import "components/posts-list/posts-list";
+@import "components/post-detail/post-detail";
+@import "components/post-detail-edit/post-detail-edit";
+@import "components/comments-list/comments-list";
+@import "components/write-comment/write-comment";
+@import "components/user-detail/user-detail";

@@ -1,0 +1,23 @@
+// -------------------------------------------------------------------------------------------------
+// write-comment
+
+#postDetailSection {
+  #input_field_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 20px auto;
+
+    #inputComment {
+      border-right: none;
+    }
+
+    #submitButton {
+      text-decoration: $text-decoration_default;
+      color: $color_default;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+}

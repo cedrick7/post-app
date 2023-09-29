@@ -1,0 +1,56 @@
+// -------------------------------------------------------------------------------------------------
+// my-information
+.myInformationWrapper {
+  .myInformationButton {
+    border: none;
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    .profilePicWrapper {
+      margin: auto 5px;
+
+      .profilePicture {
+        border: $profilePictureBorder;
+        border-radius: $profilePictureBorderRadius;
+      }
+    }
+
+    .namesWrapper {
+      display: flex;
+      flex-direction: column;
+      margin: auto 5px;
+
+      p {
+        margin-bottom: 0;
+      }
+
+      .usernameWrapper {
+        font-size: 1rem;
+
+        .usernameLink {
+          border: none;
+          background-color: transparent;
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
+      .nameWrapper {
+        font-size: 0.75rem;
+      }
+
+      .postsLinkWrapper {
+        font-size: 0.75rem;
+
+        .userPostsLink {
+          border: none;
+          background-color: transparent;
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
+    }
+  }
+}

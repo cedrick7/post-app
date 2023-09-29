@@ -1,0 +1,26 @@
+<section id="commentsListSection">
+  <div class="cardShowCommentsWrapper">
+    <p class="card-title commentHeading">See all comments</p>
+
+    <!-- <div class="commentWrapper" *ngIf="!commentsList$">no comments!</div>  -->
+
+    <!-- start comments loop for post here -->
+    <div class="commentWrapper" *ngFor="let comment of commentsList$ | async">
+      <div class="commentUserProfilePictureWrapper">
+        <img
+          src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+          alt=""
+          height="40"
+          width="40"
+          class="commentUserProfilePicture"
+        />
+      </div>
+      <div class="commentBodyWrapper">
+        <p class="card-text commentEmail">{{ comment.email }}</p>
+        <p class="card-text commentName">{{ comment.name }}</p>
+        <p class="card-text commentBody">{{ comment.body }}</p>
+      </div>
+    </div>
+    <!-- end comments loop for post here -->
+  </div>
+</section>
