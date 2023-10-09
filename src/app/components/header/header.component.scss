@@ -1,14 +1,14 @@
-@import "/src/variables.scss";
-// -------------------------------------------------------------------------------------------------
-// header
-#header {
-  .meInformationWrapper {
-    display: none;
-  }
+// @import "/src/variables.scss";
+// // -------------------------------------------------------------------------------------------------
+// // header
+// #header {
+//   .meInformationWrapper {
+//     display: none;
+//   }
 
-  @media (min-width: 992px) {
-    .meInformationWrapper {
-      display: block;
-    }
-  }
-}
+//   @media (min-width: 992px) {
+//     .meInformationWrapper {
+//       display: block;
+//     }
+//   }
+// }
