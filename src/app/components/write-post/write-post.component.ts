@@ -1,12 +1,12 @@
 import { Component } from "@angular/core";
 import { NgForm } from "@angular/forms";
+import { Router } from "@angular/router";
 import { Store } from "@ngrx/store";
 import { of, switchMap } from "rxjs";
 import { PostPost } from "src/app/models/postPost.model";
-import { PostsService } from "src/app/services/posts.service";
-import { UsersService } from "src/app/services/users.service";
+import { User } from "src/app/models/user.model";
 import { createPost } from "src/app/store/actions/posts.actions";
-import { loadUsers } from "src/app/store/actions/users.actions";
+import { loadUsers, selectUser } from "src/app/store/actions/users.actions";
 import { getSelectedUserId, getUsers } from "src/app/store/selectors/users.selectors";
 
 @Component({
@@ -15,11 +15,7 @@ import { getSelectedUserId, getUsers } from "src/app/store/selectors/users.selec
   styleUrls: ["./write-post.component.scss"],
 })
 export class WritePostComponent {
-  constructor(
-    private usersService: UsersService,
-    private postService: PostsService,
-    private store: Store<{}>
-  ) {}
+  constructor(private route: Router, private store: Store<{}>) {}
 
   // variables
   myUserId$ = this.store.select(getSelectedUserId);
@@ -27,12 +23,8 @@ export class WritePostComponent {
   writePostBody!: string;
 
   // GET
-  //public usersList$ = this.usersService.getUserByUserIdAsArray(this._myUserId);
   public usersList$ = this.myUserId$.pipe(
-    switchMap((myUserId) =>
-      // !!myUserId ? this.usersService.getUserByUserIdAsArray(myUserId) : of([]))
-      !!myUserId ? this.getUserByUserId$(myUserId) : of([])
-    )
+    switchMap((myUserId) => (!!myUserId ? this.getUserByUserId$(myUserId) : of([])))
   );
 
   private getUserByUserId$(myUserId: number) {
@@ -48,10 +40,14 @@ export class WritePostComponent {
       userId: myUserId,
     };
 
-    console.log(POST);
-    postForm.reset();
-
-    // this.postService.postPost(POST);
     this.store.dispatch(createPost({ post: POST }));
+
+    postForm.reset();
+  }
+
+  // button actions
+  onSelectUser(user: User) {
+    this.store.dispatch(selectUser({ user: user }));
+    this.route.navigateByUrl(`user/${user?.id}`);
   }
 }

@@ -9,26 +9,6 @@ export const commentsLoaded = createAction(
   props<{ comments: Comment[] }>()
 );
 
-// // not needed:
-// export const selectComment = createAction(
-//   "[Comments] select comment",
-//   props<{ comment: Comment }>()
-// );
-// export const commentSelected = createAction(
-//   "[Comments] comment selected",
-//   props<{ comment: Comment }>()
-// );
-
-// // not needed:
-// export const selectCommentId = createAction(
-//   "[Comments] select commentId",
-//   props<{ commentId: number }>()
-// );
-// export const commentIdSelected = createAction(
-//   "[Comments] commentId selected",
-//   props<{ commentId: number }>()
-// );
-
 // POST
 export const createComment = createAction(
   "[Comments] create comment",
@@ -38,23 +18,3 @@ export const commentCreated = createAction(
   "[Comments] comment created",
   props<{ comment: Comment }>()
 );
-
-// // not needed:
-// export const updateComment = createAction(
-//   "[Comments] update comment",
-//   props<{ comment: Comment }>()
-// );
-// export const commentUpdated = createAction(
-//   "[Comments] comment updated",
-//   props<{ comment: Comment }>()
-// );
-
-// // not needed:
-// export const deleteComment = createAction(
-//   "[Comments] delete comment",
-//   props<{ commentId: number }>()
-// );
-// export const commentDeleted = createAction(
-//   "[Comments] comment deleted",
-//   props<{ comment: Comment }>()
-// );

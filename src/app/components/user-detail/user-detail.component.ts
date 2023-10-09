@@ -50,7 +50,6 @@ export class UserDetailComponent implements OnInit, OnDestroy {
   public userList$ = this.activatedRoute.params.pipe(
     switchMap((params) => {
       const userId = params["id"] as number;
-      //return this.usersService.getUserByUserIdAsArray(userId);
       return this.getUserByUserId$(userId);
     })
   );

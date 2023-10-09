@@ -1,0 +1,72 @@
+// @import "/src/variables.scss";
+
+// #tableWrapper {
+//   #usersListTable {
+//     tr {
+//       td {
+//         min-width: 12vw;
+//         padding: auto 0;
+//         border-radius: 10px;
+
+//         button {
+//           border: none;
+//           background-color: transparent;
+//           padding-left: 0;
+//           padding-right: 0;
+//           width: 100%;
+
+//           .tdWrapper {
+//             display: flex;
+//             flex-direction: row;
+//             justify-content: space-around;
+//             align-items: center;
+
+//             .profilePicWrapper {
+//               margin: auto 5px;
+
+//               .profilePicture {
+//                 border: $profilePictureBorder;
+//                 border-radius: $profilePictureBorderRadius;
+//               }
+//             }
+
+//             .namesWrapper {
+//               display: flex;
+//               flex-direction: column;
+//               margin: auto 5px;
+
+//               p {
+//                 margin-bottom: 0;
+//               }
+
+//               .usernameWrapper {
+//                 font-size: 1rem;
+
+//                 .usernameLink {
+//                   border: none;
+//                   background-color: transparent;
+//                   padding-left: 0;
+//                   padding-right: 0;
+//                 }
+//               }
+//               .nameWrapper {
+//                 font-size: 0.75rem;
+//               }
+
+//               .postsLinkWrapper {
+//                 font-size: 0.75rem;
+
+//                 .userPostsLink {
+//                   border: none;
+//                   background-color: transparent;
+//                   padding-left: 0;
+//                   padding-right: 0;
+//                 }
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }

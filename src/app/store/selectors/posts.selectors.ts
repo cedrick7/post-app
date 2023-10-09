@@ -9,14 +9,3 @@ export const getSelectedPost = createSelector(
   postsState,
   (state: PostsState) => state?.selectedPost
 );
-
-// export const getSelectedPostId = createSelector(
-//   postsState,
-//   (state: PostsState) => state?.selectedPostId
-// );
-
-// export const getCreatedPost = createSelector(postsState, (state: PostsState) => state?.createdPost);
-
-// export const getUpdatedPost = createSelector(postsState, (state: PostsState) => state?.updatedPost);
-
-// export const getDeletedPost = createSelector(postsState, (state: PostsState) => state?.deletedPost);

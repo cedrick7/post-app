@@ -8,18 +8,12 @@ export interface PostsState {
   posts: Post[];
   selectedPost: Post | undefined;
   selectedPostId: number | undefined;
-  // createdPost: Post | undefined;
-  // updatedPost: Post | undefined;
-  // deletedPost: Post | undefined;
 }
 
 export const initialState: PostsState = {
   posts: [],
   selectedPost: undefined,
   selectedPostId: undefined,
-  // createdPost: undefined,
-  // updatedPost: undefined,
-  // deletedPost: undefined,
 };
 
 export const PostsReducer = createReducer(
@@ -34,16 +28,6 @@ export const PostsReducer = createReducer(
     ...state,
     selectedPost: post,
   })),
-
-  // FOR CACHING IN STORE
-  // on(PostsActions.postSelected, (state, { post }) => ({
-  //   ...state,
-  //   selectedPost: post,
-  // })),
-  // on(PostsActions.postIdSelected, (state, { postId }) => ({
-  //   ...state,
-  //   postId: postId,
-  // })),
 
   // POST
   on(PostsActions.postCreated, (state, { post }) => ({
@@ -68,8 +52,3 @@ export const PostsReducer = createReducer(
     posts: state?.posts.filter((post) => post.id !== postId),
   }))
 );
-
-// posts = [{id:1, name:post1}, {id:2, name:post2}, {id:3, name:post3}]
-
-// posts.map(eachPost => eachPost.id===3 ? ({id:3, name:newPost3}) : eachPost )
-// posts = [{id:1, name:post1}, {id:2, name:post2}, {id:3, name:newPost3}]

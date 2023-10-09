@@ -1,0 +1,65 @@
+// @import "/src/variables.scss";
+
+// #commentsListSection {
+//   .cardShowCommentsWrapper {
+//     .commentHeading {
+//     }
+
+//     .commentWrapper {
+//       display: flex;
+//       flex-direction: row;
+//       justify-content: space-around;
+//       align-items: center;
+//       background-color: $background-color_1;
+//       border: 1px solid $border-color_1;
+//       border-radius: 5px;
+//       padding: 10px;
+//       margin-bottom: 10px;
+
+//       .commentUserProfilePictureWrapper {
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+
+//         .commentUserProfilePicture {
+//           margin-top: 10px;
+//           border: $profilePictureBorder;
+//           border-radius: $profilePictureBorderRadius;
+//         }
+//       }
+
+//       .commentBodyWrapper {
+//         margin-left: 10px;
+//         width: 100%;
+
+//         p {
+//           margin-bottom: 0;
+//         }
+
+//         .commentEmail {
+//           padding: 0 5px 5px 5px;
+//           font-size: 0.5rem;
+//           color: $color_grey;
+//           font-family: monospace;
+//           letter-spacing: 1px;
+//         }
+//         .commentName {
+//           padding: 5px;
+//           font-size: 1rem;
+//           color: $color_default;
+//           background-color: $background-color_2;
+//           border-top-left-radius: 5px;
+//           border-top-right-radius: 5px;
+//         }
+//         .commentBody {
+//           padding: 0 5px 8px 5px;
+//           font-size: 0.8rem;
+//           color: $color_default;
+//           background-color: $background-color_2;
+//           border-bottom-left-radius: 5px;
+//           border-bottom-right-radius: 5px;
+//         }
+//       }
+//     }
+//   }
+// }

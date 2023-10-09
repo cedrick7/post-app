@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { map, switchMap, tap } from "rxjs";
+import { switchMap, tap } from "rxjs";
 
 import * as CommentsActions from "../actions/comments.actions";
 import { CommentsService } from "src/app/services/comments.service";
@@ -28,30 +28,6 @@ export class CommentsEffects {
     )
   );
 
-  // // not needed:
-  // selectComment$ = createEffect(() =>
-  //   this.commentsActions$.pipe(
-  //     ofType(CommentsActions.selectComment),
-  //     map((action) => {
-  //       return CommentsActions.commentSelected({
-  //         comment: action.comment,
-  //       });
-  //     })
-  //   )
-  // );
-
-  // // not needed:
-  // selectCommentId$ = createEffect(() =>
-  //   this.commentsActions$.pipe(
-  //     ofType(CommentsActions.selectCommentId),
-  //     map((action) => {
-  //       return CommentsActions.commentIdSelected({
-  //         commentId: action.commentId,
-  //       });
-  //     })
-  //   )
-  // );
-
   // POST
   createComment$ = createEffect(() =>
     this.commentsActions$.pipe(
@@ -68,28 +44,4 @@ export class CommentsEffects {
       })
     )
   );
-
-  // // not needed:
-  // updateComment$ = createEffect(() =>
-  //   this.commentsActions$.pipe(
-  //     ofType(CommentsActions.updateComment),
-  //     map((action) => {
-  //       return CommentsActions.commentUpdated({
-  //         comment: action.comment,
-  //       });
-  //     })
-  //   )
-  // );
-
-  // not needed:
-  // deleteComment$ = createEffect(() =>
-  //   this.commentsActions$.pipe(
-  //     ofType(CommentsActions.deleteComment),
-  //     map((action) => {
-  //       return CommentsActions.commentDeleted({
-  //         comment: action.comment,
-  //       });
-  //     })
-  //   )
-  // );
 }

@@ -1,17 +1,6 @@
 <!-- start post here -->
 <div class="postWrapper" *ngFor="let post of postList$ | async">
   <div class="card">
-    <!-- <div class="cardUserWrapper">
-            <img
-              src="https://pixabay.com/get/g608b32237aaa4561cd7f812d385cd3bb6ca5e0ed46df51b34b58e16b6aeb27dea46be5706a1046fdb32037da70e6e168_1280.png"
-              alt=""
-              height="40"
-              width="40"
-              class="cardUserPicture"
-            />
-            <button class="card-text cardUsername">@username</button>
-          </div> -->
-
     <div class="cardHeader">
       <div class="cardUserWrapper">
         <img
@@ -21,7 +10,9 @@
           width="40"
           class="cardUserPicture"
         />
-        <button class="card-text cardUsername">@{{ post?.userName }}</button>
+        <button class="card-text cardUsername" (click)="onSelectUserByUserId(post?.userId ?? 0)">
+          @{{ post?.userName }}
+        </button>
       </div>
       <div class="postInteractionWrapper" *ngIf="post?.userId == (myUserId$ | async)">
         <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
@@ -42,15 +33,16 @@
 
     <hr />
 
+    <!-- start comments-list here -->
     <app-comments-list></app-comments-list>
+    <!-- end comments-list here -->
 
     <hr />
 
     <div class="writeCommentDivWrapper">
-      <!-- <app-write-comment
-                      (commentInputValueChanged)="submitComment($event)"
-                    ></app-write-comment> -->
+      <!-- start write-comment here -->
       <app-write-comment></app-write-comment>
+      <!-- start write-comment here -->
     </div>
   </div>
 </div>

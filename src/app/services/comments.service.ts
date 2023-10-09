@@ -1,10 +1,7 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { map, mergeMap } from "rxjs";
-import { PostsService } from "./posts.service";
 import { UsersService } from "./users.service";
 import { Comment } from "../models/comment.model";
-import { User } from "../models/user.model";
 import { PostComment } from "../models/postComment.model";
 
 @Injectable({

@@ -8,17 +8,9 @@ export const loadUsers = createAction(
 );
 export const usersLoaded = createAction("[Users] users loaded", props<{ users: User[] }>());
 
-// export const loadUsersByUserId = createAction(
-//   "[Users] load users by userId",
-//   props<{ userId: number }>()
-// );
-// export const usersByUserIdLoaded = createAction(
-//   "[Users] users by userId loaded",
-//   props<{ users: User[] }>()
-// );
-
 // FOR CACHING IN STORE
 export const selectUser = createAction("[Users] select user", props<{ user: User }>());
+export const selectUserByUserId = createAction("[Users] select user", props<{ userId: number }>());
 export const userSelected = createAction("[Users] user selected", props<{ user: User }>());
 
 export const selectUserId = createAction("[Users] select userId", props<{ userId: number }>());

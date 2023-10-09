@@ -42,7 +42,6 @@ export class UserDetailEditComponent implements OnInit, OnDestroy {
       this.userCompanyNameInput = user?.company?.name;
       this.userCompanyCatchPhraseInput = user?.company?.catchPhrase;
       this.userCompanyBsInput = user?.company?.bs;
-      console.log(user);
     });
   }
 
@@ -75,7 +74,6 @@ export class UserDetailEditComponent implements OnInit, OnDestroy {
   public userList$ = this.activatedRoute.params.pipe(
     switchMap((params) => {
       const userId = params["id"] as number;
-      // return this.usersService.getUserByUserIdAsArray(userId);
       return this.getUserByUserId$(userId);
     })
   );
@@ -110,9 +108,7 @@ export class UserDetailEditComponent implements OnInit, OnDestroy {
         bs: userForm.form.value.userCompanyBsInput,
       },
     };
-    console.log(USER);
 
-    // this.usersService.updateUser(USER);
     this.store.dispatch(updateUser({ updateUser: USER }));
   }
 }

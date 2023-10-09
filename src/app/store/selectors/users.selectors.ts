@@ -5,8 +5,6 @@ export const usersState = createFeatureSelector<UsersState>(usersKey);
 
 export const getUsers = createSelector(usersState, (state: UsersState) => state?.users);
 
-// export const getUsersByUserId = createSelector(usersState, (state: UsersState) => state?.users);
-
 export const getSelectedUser = createSelector(
   usersState,
   (state: UsersState) => state?.selectedUser

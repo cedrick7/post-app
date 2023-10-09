@@ -10,7 +10,9 @@
           width="40"
           class="cardUserPicture"
         />
-        <button class="card-text cardUsername">@{{ post.userName }}</button>
+        <button class="card-text cardUsername" (click)="onSelectUser(post.userId)">
+          @{{ post.userName }}
+        </button>
       </div>
       <div class="postInteractionWrapper" *ngIf="post.userId == (myUserId$ | async)">
         <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">

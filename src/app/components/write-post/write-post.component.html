@@ -9,7 +9,9 @@
           width="40"
           class="cardUserPicture"
         />
-        <button class="card-text cardUsername">@{{ user.username }}</button>
+        <button class="card-text cardUsername" (click)="onSelectUser(user)">
+          @{{ user.username }}
+        </button>
       </div>
     </div>
     <div id="writePostFormWrapper">

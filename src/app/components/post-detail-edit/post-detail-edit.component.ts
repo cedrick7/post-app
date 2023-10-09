@@ -1,14 +1,14 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
-import { Post } from "src/app/models/post.model";
 import { PostsService } from "src/app/services/posts.service";
 import { Subscription, map, switchMap } from "rxjs";
 import { NgForm } from "@angular/forms";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { UpdatePost } from "src/app/models/updatePost.model";
 import { Store } from "@ngrx/store";
 import { getSelectedUserId } from "src/app/store/selectors/users.selectors";
 import { deletePost, loadPost, updatePost } from "src/app/store/actions/posts.actions";
 import { getSelectedPost } from "src/app/store/selectors/posts.selectors";
+import { selectUserByUserId } from "src/app/store/actions/users.actions";
 
 @Component({
   selector: "app-post-detail-edit",
@@ -18,6 +18,7 @@ import { getSelectedPost } from "src/app/store/selectors/posts.selectors";
 export class PostDetailEditComponent implements OnInit, OnDestroy {
   constructor(
     private postsService: PostsService,
+    private route: Router,
     private readonly activatedRoute: ActivatedRoute,
     private store: Store<{}>
   ) {}
@@ -27,8 +28,6 @@ export class PostDetailEditComponent implements OnInit, OnDestroy {
       this.editPostTitle = post?.title;
       this.editPostBody = post?.body;
     });
-    console.log(this.editPostTitle);
-    console.log(this.editPostBody);
   }
 
   ngOnDestroy(): void {
@@ -46,7 +45,6 @@ export class PostDetailEditComponent implements OnInit, OnDestroy {
   public postList$ = this.activatedRoute.params.pipe(
     switchMap((params) => {
       const postId = params["id"] as number;
-      // return this.postsService.getPostByPostIdWithUsername(postId);
       this.store.dispatch(loadPost({ postId: postId }));
       return this.store.select(getSelectedPost).pipe(map((s) => [s]));
     })
@@ -60,17 +58,23 @@ export class PostDetailEditComponent implements OnInit, OnDestroy {
       body: editPostForm.form.value.editPostBody,
       userId: myUserId,
     };
-    console.log(POST);
 
-    // this.postsService.updatePost(POST);
     this.store.dispatch(updatePost({ updatePost: POST }));
-
-    // editPostForm.reset();
   }
 
   // DELETE
   deletePost(postId: number) {
-    // this.postsService.deletePostByPostId(postId);
     this.store.dispatch(deletePost({ postId: postId }));
+    // redirect to ?
+  }
+
+  // button actions
+  onSelectUserByUserId(userId: number) {
+    if (userId == 0) {
+      console.error("data cannot be read. select user failed, redirect to user failed.");
+    } else {
+      this.store.dispatch(selectUserByUserId({ userId: userId }));
+      this.route.navigateByUrl(`user/${userId}`);
+    }
   }
 }

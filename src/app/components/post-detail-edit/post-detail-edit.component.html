@@ -1,4 +1,4 @@
-<!-- start write a post -->
+<!-- start edit a post -->
 <div class="postWrapper" id="editPostWrapper" *ngFor="let post of postList$ | async">
   <div class="card" id="editPostCard">
     <div class="cardHeader">
@@ -10,7 +10,9 @@
           width="40"
           class="cardUserPicture"
         />
-        <button class="card-text cardUsername">@{{ post?.userName }}</button>
+        <button class="card-text cardUsername" (click)="onSelectUserByUserId(post?.userId ?? 0)">
+          @{{ post?.userName }}
+        </button>
       </div>
     </div>
     <div id="editPostFormWrapper">
@@ -72,4 +74,4 @@
     </div>
   </div>
 </div>
-<!-- end write a post -->
+<!-- end edit a post -->

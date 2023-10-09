@@ -1,15 +1,6 @@
-import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import {
-  Observable,
-  concatMap,
-  mergeMap,
-  map,
-  switchMap,
-  Subject,
-  combineLatest,
-  catchError,
-} from "rxjs";
+import { mergeMap, map, switchMap } from "rxjs";
 import { UsersService } from "./users.service";
 import { Post } from "../models/post.model";
 import { User } from "../models/user.model";
@@ -23,23 +14,11 @@ export class PostsService {
   constructor(private http: HttpClient, private usersService: UsersService) {}
 
   //------------------------------------------------------------------------------------------------
-  // RESPONSE HANDLING
-  handleSuccess(response: HttpResponse<any>) {
-    console.log(response);
-    // show alert with success message
-  }
-
-  handleError(error: HttpErrorResponse) {
-    console.error("error: ", error);
-    console.error("error message: ", error.message);
-  }
-
-  //------------------------------------------------------------------------------------------------
   // GET
   getPosts() {
     return this.http.get<Post[]>("https://jsonplaceholder.typicode.com/posts/");
   }
-  // important (all post irrespective of user)
+
   getPostsWithUsername() {
     return this.getPosts().pipe(
       mergeMap((posts) => {
@@ -86,7 +65,6 @@ export class PostsService {
     return this.http.get<Post[]>(URL);
   }
 
-  // important()get post for a particular user
   getPostsByUserIdWithUsername(userId: number) {
     return this.getPostsByUserId(userId).pipe(
       mergeMap((posts) => {

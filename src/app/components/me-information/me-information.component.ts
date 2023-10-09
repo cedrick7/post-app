@@ -5,6 +5,7 @@ import { Router } from "@angular/router";
 import { Store } from "@ngrx/store";
 import { getSelectedUserId } from "src/app/store/selectors/users.selectors";
 import { of, switchMap } from "rxjs";
+import { selectUser } from "src/app/store/actions/users.actions";
 
 @Component({
   selector: "app-me-information",
@@ -22,7 +23,6 @@ export class MeInformationComponent {
   myUserId$ = this.store.select(getSelectedUserId);
 
   // GET
-  //public usersList$ = this.usersService.getUserByUserIdAsArray(this._myUserId);
   public usersList$ = this.myUserId$.pipe(
     switchMap((myUserId) =>
       !!myUserId ? this.usersService.getUserByUserIdAsArray(myUserId) : of([])
@@ -31,6 +31,7 @@ export class MeInformationComponent {
 
   // button actions
   onSelectUser(user: User) {
+    this.store.dispatch(selectUser({ user: user }));
     this.route.navigateByUrl(`user/${user?.id}`);
     console.log(user);
   }

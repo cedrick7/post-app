@@ -34,22 +34,6 @@ export class UsersEffects {
     )
   );
 
-  // loadUsersById$ = createEffect(() =>
-  //   this.userActions$.pipe(
-  //     ofType(UsersActions.loadUsersByUserId),
-  //     switchMap((_action) => {
-  //       return this.usersService.getUserByUserIdAsArray(_action.userId).pipe(
-  //         tap((data) => console.warn(data)),
-  //         switchMap((users) => [
-  //           UsersActions.usersByUserIdLoaded({
-  //             users: users,
-  //           }),
-  //         ])
-  //       );
-  //     })
-  //   )
-  // );
-
   // FOR CACHING IN STORE
   selectUser$ = createEffect(() =>
     this.userActions$.pipe(
@@ -58,6 +42,22 @@ export class UsersEffects {
         return UsersActions.userSelected({
           user: action.user,
         });
+      })
+    )
+  );
+
+  selectUserByUserId$ = createEffect(() =>
+    this.userActions$.pipe(
+      ofType(UsersActions.selectUserByUserId),
+      switchMap((action) => {
+        return this.usersService.getUserByUserId(action.userId).pipe(
+          tap((data) => console.warn(data)),
+          map((user) => {
+            return UsersActions.userSelected({
+              user: user,
+            });
+          })
+        );
       })
     )
   );

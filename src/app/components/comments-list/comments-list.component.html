@@ -1,9 +1,6 @@
 <section id="commentsListSection">
   <div class="cardShowCommentsWrapper">
     <p class="card-title commentHeading">See all comments</p>
-
-    <!-- <div class="commentWrapper" *ngIf="!commentsList$">no comments!</div>  -->
-
     <!-- start comments loop for post here -->
     <div class="commentWrapper" *ngFor="let comment of commentsList$ | async">
       <div class="commentUserProfilePictureWrapper">

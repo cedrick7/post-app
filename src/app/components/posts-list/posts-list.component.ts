@@ -4,9 +4,10 @@ import { PostsService } from "src/app/services/posts.service";
 import { switchMap } from "rxjs";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Store } from "@ngrx/store";
-import { getSelectedUserId } from "src/app/store/selectors/users.selectors";
+import { getSelectedUserId, getUsers } from "src/app/store/selectors/users.selectors";
 import { deletePost, loadPosts } from "src/app/store/actions/posts.actions";
 import { getPosts } from "src/app/store/selectors/posts.selectors";
+import { selectUserByUserId } from "src/app/store/actions/users.actions";
 
 @Component({
   selector: "app-posts-list",
@@ -32,12 +33,10 @@ export class PostsListComponent {
       if (params["id"] == undefined) {
         // used for dashboard
         return this.getPostsByUserIdWithUsername$();
-        // return this.postsService.getPostsWithUsername();
       } else {
         const userId = params["id"] as number;
         // used for user
         return this.getPostsByUserIdWithUsername$(userId);
-        //  return this.postsService.getPostsByUserIdWithUsername(userId);
       }
     })
   );
@@ -48,19 +47,20 @@ export class PostsListComponent {
   }
 
   // button actions
+  onSelectUser(userId: number) {
+    this.store.dispatch(selectUserByUserId({ userId: userId }));
+    this.route.navigateByUrl(`user/${userId}`);
+  }
+
   onSelectPost(post: Post) {
     this.route.navigateByUrl(`post/${post?.id}`);
-    console.log(post);
   }
 
   onEditPost(post: Post) {
     this.route.navigateByUrl(`post/${post?.id}/edit`);
-    console.log(post);
   }
 
   onDeletePost(post: Post) {
     this.store.dispatch(deletePost({ postId: post.id }));
-    // this.route.navigateByUrl(``);
-    // console.log(post);
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { User } from "src/app/models/user.model";
 import { UsersService } from "src/app/services/users.service";
 import { ActivatedRoute, Router } from "@angular/router";
@@ -20,19 +20,14 @@ export class UsersListComponent {
     private store: Store<{}>
   ) {}
 
-  // variables
-  // usersList$ = this.store.select(getUsers);
-
   // GET
   public usersList$ = this.activatedRoute.params.pipe(
     switchMap((params) => {
       if (params["id"] == undefined) {
         // used for dashboard
-        // return this.getUsersByUserId$();
         return this.usersService.getUsers();
       } else {
         const userId = params["id"] as number;
-        //return this.usersService.getUserByUserIdAsArray(userId);
         return this.getUsersByUserId$(userId);
       }
     })

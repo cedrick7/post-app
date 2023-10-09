@@ -14,12 +14,6 @@ export const postsLoaded = createAction("[Posts] posts loaded", props<{ posts: P
 export const loadPost = createAction("[Posts] load post", props<{ postId: number }>());
 export const postLoaded = createAction("[Posts] post loaded", props<{ post: Post }>());
 
-// export const selectPost = createAction("[Posts] select post", props<{ post: Post }>());
-// export const postSelected = createAction("[Posts] post selected", props<{ post: Post }>());
-
-// export const selectPostId = createAction("[Posts] select postId", props<{ postId: number }>());
-// export const postIdSelected = createAction("[Posts] postId selected", props<{ postId: number }>());
-
 // POST
 export const createPost = createAction("[Posts] create post", props<{ post: PostPost }>());
 export const postCreated = createAction("[Posts] post created", props<{ post: Post }>());

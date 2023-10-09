@@ -6,20 +6,10 @@ export const commentsKey = "comments";
 
 export interface CommentsState {
   comments: Comment[];
-  // selectedComment: Comment | undefined;
-  // selectedCommentId: number | undefined;
-  // createdComment: Comment | undefined;
-  // updatedComment: Comment | undefined;
-  // deletedComment: Comment | undefined;
 }
 
 export const initialState: CommentsState = {
   comments: [],
-  // selectedComment: undefined,
-  // selectedCommentId: undefined,
-  // createdComment: undefined,
-  // updatedComment: undefined,
-  // deletedComment: undefined,
 };
 
 export const CommentsReducer = createReducer(
@@ -31,16 +21,6 @@ export const CommentsReducer = createReducer(
     comments: comments,
   })),
 
-  // FOR CACHING IN STORE
-  // on(CommentsActions.commentSelected, (state, { comment }) => ({
-  //   ...state,
-  //   comment: comment,
-  // })),
-  // on(CommentsActions.commentIdSelected, (state, { commentId }) => ({
-  //   ...state,
-  //   commentId: commentId,
-  // })),
-
   // POST
   on(CommentsActions.commentCreated, (state, { comment }) => {
     return {
@@ -48,16 +28,4 @@ export const CommentsReducer = createReducer(
       comments: (state?.comments ?? []).concat([comment]),
     };
   })
-
-  // UPDATE
-  // on(CommentsActions.commentUpdated, (state, { comment }) => ({
-  //   ...state,
-  //   comment: comment,
-  // })),
-
-  // DELETE
-  // on(CommentsActions.commentDeleted, (state, { comment }) => ({
-  //   ...state,
-  //   comment: comment,
-  // }))
 );

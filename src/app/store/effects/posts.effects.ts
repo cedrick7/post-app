@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { map, switchMap, tap } from "rxjs";
+import { switchMap, tap } from "rxjs";
 
 import * as PostsActions from "../actions/posts.actions";
 import { PostsService } from "src/app/services/posts.service";
@@ -48,31 +48,6 @@ export class PostsEffects {
       })
     )
   );
-
-  // FOR CACHING IN STORE
-  // selectPost$ = createEffect(() =>
-  //   this.postActions$.pipe(
-  //     ofType(PostsActions.selectPost),
-  //     map((action) => {
-  //       return PostsActions.postSelected({
-  //         post: action.post,
-  //       });
-  //     })
-  //   )
-  // );
-
-  // selectPostId$ = createEffect(() =>
-  //   this.postActions$.pipe(
-  //     ofType(PostsActions.selectPostId),
-  //     map((action) => {
-  //       return PostsActions.postIdSelected({
-  //         postId: action.postId,
-  //       });
-  //     })
-  //   )
-  // );
-
-  // dipatch action -> listen to action in effect -> call api ->  on success: dipsatch action and dispacth success notification  -> Listen sto success notification in another effect and titrigger snackbar
 
   // POST
   createPost$ = createEffect(() =>

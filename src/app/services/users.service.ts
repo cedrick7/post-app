@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { map, mergeMap } from "rxjs";
+import { map } from "rxjs";
 import { User } from "../models/user.model";
 
 @Injectable({
@@ -31,9 +31,6 @@ export class UsersService {
   }
 
   //------------------------------------------------------------------------------------------------
-  // POST
-
-  //------------------------------------------------------------------------------------------------
   // UPDATE
   updateUser(user: User) {
     const URL: string = "https://jsonplaceholder.typicode.com/posts/" + user.id;
@@ -44,7 +41,4 @@ export class UsersService {
 
     return this.http.put<User>(URL, BODY, { headers: HEADERS });
   }
-
-  //------------------------------------------------------------------------------------------------
-  // DELETE
 }
